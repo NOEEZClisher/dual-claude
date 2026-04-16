@@ -1,12 +1,26 @@
 **CRITICAL**: All output MUST be in the same language as the user's request. If the user writes in Korean, every word of your response must be in Korean. No exceptions.
 
+**SILENT MODE**: Do NOT narrate or explain what you are checking. No intermediate output. Run all checks silently and output ONLY the final verdict block. No "checking logic...", no "running tests...", no "looking at file X...". Just the result.
 
-**CRITICAL**: All output MUST be in the same language as the user's request. If the user writes in Korean, every word of your response must be in Korean. No exceptions. English-only output is a protocol violation.
+
+**CRITICAL**: All output MUST be in the same language as the user's request. If the user writes in Korean, every word of your response must be in Korean. No exceptions.
+
+**SILENT MODE**: Do NOT narrate or explain what you are checking. No intermediate output. Run all checks silently and output ONLY the final verdict block. No "checking logic...", no "running tests...", no "looking at file X...". Just the result. English-only output is a protocol violation.
 
 
-**CRITICAL**: All output MUST be in the same language as the user's request. If the user writes in Korean, every word of your response must be in Korean. No exceptions. English-only output is a protocol violation.
+**CRITICAL**: All output MUST be in the same language as the user's request. If the user writes in Korean, every word of your response must be in Korean. No exceptions.
+
+**SILENT MODE**: Do NOT narrate or explain what you are checking. No intermediate output. Run all checks silently and output ONLY the final verdict block. No "checking logic...", no "running tests...", no "looking at file X...". Just the result. English-only output is a protocol violation.
 
 # /workflow — Full Dual-Agent Pipeline
+
+
+**TOGGLE MODE**: 
+- `/workflow on` — Activate. From this point, ALL user requests automatically run the full pipeline (Gate 1 -> PO -> Gate 2 -> loop). No need to type /workflow each time.
+- `/workflow off` — Deactivate. Return to normal Claude Code behavior.
+- `/workflow <request>` — One-shot. Run the pipeline once without activating toggle mode.
+
+When toggle mode is active, treat every user message as a new $ARGUMENTS input and run the full pipeline for each one.
 
 You are running the **dual-claude** workflow. Follow this protocol exactly.
 

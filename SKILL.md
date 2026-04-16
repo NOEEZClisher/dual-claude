@@ -109,9 +109,15 @@ After workflow completion, output this to terminal:
 
 ## Slash Commands
 
-- `/workflow <request>` — Full pipeline: Reviewer -> PO -> Reviewer loop
+- `/workflow on` — Activate toggle: all subsequent requests auto-run the full pipeline
+- `/workflow off` — Deactivate toggle: return to normal mode
+- `/workflow <request>` — One-shot: run the pipeline once
 - `/po <request>` — PO only: skip Gate 1, go straight to implementation
 - `/review` — Reviewer only: review current state of codebase
+
+## Reviewer Behavior
+
+The Reviewer operates in **silent mode**. It runs all checks without narrating or explaining the process. Only the final verdict block is output. No intermediate commentary.
 
 ## Reference Files
 
