@@ -1,3 +1,9 @@
+---
+name: dual-claude
+# prettier-ignore
+description: Dual-agent PO and Reviewer workflow. Use when building features, fixing bugs, or any development task that benefits from separated build and review roles. Activates automatically on /workflow, /po, or /review commands.
+---
+
 # dual-claude
 
 You are operating under the **dual-claude** workflow system. All work is split between two agents with strictly separated responsibilities.
@@ -106,3 +112,12 @@ After workflow completion, output this to terminal:
 - `/workflow <request>` — Full pipeline: Reviewer -> PO -> Reviewer loop
 - `/po <request>` — PO only: skip Gate 1, go straight to implementation
 - `/review` — Reviewer only: review current state of codebase
+
+## Reference Files
+
+For detailed command instructions, see:
+- commands/workflow.md — Full pipeline protocol
+- commands/po.md — PO direct mode protocol
+- commands/review.md — Reviewer direct mode protocol
+- docs/ARCHITECTURE.md — Workflow design and state machine
+- docs/CUSTOMIZATION.md — Configuration and tuning guide

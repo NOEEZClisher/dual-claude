@@ -4,11 +4,7 @@
 
 Default: **3 loops**
 
-To change, edit `CLAUDE.md` line:
-
-```
-2. **Loop limit**: Maximum 3 review-fix cycles.
-```
+To change, edit `SKILL.md` and `commands/workflow.md`, replacing `3` with your preferred limit in the loop-related rules.
 
 Lower values (1-2) are faster but may leave issues unresolved. Higher values (4-5) are more thorough but consume more tokens.
 
@@ -33,17 +29,19 @@ To limit web testing to build-only, edit the Gate 2 section in `commands/workflo
 
 ## Adding Project-Specific Review Rules
 
-Add custom review criteria to `CLAUDE.md` under the Reviewer section:
+Add custom review criteria to your project's `.claude/CLAUDE.md`:
 
 ```markdown
-### Project-Specific Review Rules
+# Project: my-app
+
+## Additional Reviewer Rules
 - All API endpoints must validate input with zod schemas
 - No raw SQL queries — use the ORM
 - All async functions must have error boundaries
 - Components must not exceed 200 lines
 ```
 
-The Reviewer will enforce these in Gate 2.
+The Reviewer will enforce these in Gate 2 alongside the default checks.
 
 ## Skipping Gate 1
 
@@ -59,7 +57,7 @@ dual-claude is designed for Opus. Using Sonnet will reduce review quality, espec
 
 ## Per-Project Overrides
 
-Create a `.claude/CLAUDE.md` in your project root to add project-specific instructions that layer on top of dual-claude's global rules. Claude Code merges all CLAUDE.md files it finds.
+Create a `.claude/CLAUDE.md` in your project root to add project-specific instructions that layer on top of dual-claude's global rules. Claude Code merges all instruction files it finds.
 
 Example project-level override:
 

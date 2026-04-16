@@ -76,28 +76,39 @@ The fix-review cycle is capped at 3 iterations. This prevents infinite loops whe
 
 Each handoff between agents carries specific data:
 
-| Transition        | Data Passed                         |
-|-------------------|-------------------------------------|
-| User -> Reviewer  | Raw user request                    |
-| Reviewer -> PO    | Approved plan with scope boundary   |
-| PO -> Reviewer    | Full git diff + change summary      |
-| Reviewer -> PO    | Structured issue list with locations |
-| Final -> Terminal  | Formatted report                   |
+| Transition         | Data Passed                         |
+|--------------------|-------------------------------------|
+| User -> Reviewer   | Raw user request                    |
+| Reviewer -> PO     | Approved plan with scope boundary   |
+| PO -> Reviewer     | Full git diff + change summary      |
+| Reviewer -> PO     | Structured issue list with locations |
+| Final -> Terminal   | Formatted report                   |
 
 The full diff (not a summary) is always passed from PO to Reviewer. This ensures the Reviewer can catch issues the PO might omit from a summary.
 
 ## File Structure
 
 ```
-dual-claude/
-├── CLAUDE.md               # Root skill — Claude Code reads this first
-├── commands/
-│   ├── workflow.md          # /workflow — full pipeline
-│   ├── po.md                # /po — builder only
-│   └── review.md            # /review — reviewer only
-├── docs/
-│   ├── ARCHITECTURE.md      # This file
-│   └── CUSTOMIZATION.md     # Tuning guide
-├── README.md
-└── LICENSE
+~/.claude/skills/dual-claude/
+|-- SKILL.md                # Root skill with YAML frontmatter
+|-- setup.sh                # Symlinks commands to ~/.claude/commands/
+|-- uninstall.sh            # Removes symlinks and skill directory
+|-- commands/
+|   |-- workflow.md         # /workflow command protocol
+|   |-- po.md               # /po command protocol
+|   +-- review.md           # /review command protocol
+|-- docs/
+|   |-- ARCHITECTURE.md     # This file
+|   +-- CUSTOMIZATION.md    # Tuning guide
+|-- README.md
++-- LICENSE
+```
+
+After running `setup.sh`, the following symlinks are created:
+
+```
+~/.claude/commands/
+|-- workflow.md -> ~/.claude/skills/dual-claude/commands/workflow.md
+|-- po.md       -> ~/.claude/skills/dual-claude/commands/po.md
++-- review.md   -> ~/.claude/skills/dual-claude/commands/review.md
 ```

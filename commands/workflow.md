@@ -98,7 +98,7 @@ Tests:
   - <suite>: <pass/fail count>
 
 Web Tests:
-  - <endpoint>: <status code> <result>
+  - <endpoint>: <status code> <r>
 
 Issues (if FAIL):
   1. [critical|major|minor] <description + file:line + suggested fix>
@@ -135,8 +135,8 @@ After PASS or after exhausting 3 loops, output to terminal:
    - <file>: <what changed>
 
  Tests:
-   - <test suite>: <result>
-   - Web test: <result>
+   - <test suite>: <r>
+   - Web test: <r>
 
  Unresolved (if any):
    - <issue description>
