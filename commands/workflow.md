@@ -1,3 +1,6 @@
+
+**CRITICAL**: All output MUST be in the same language as the user's request. If the user writes in Korean, every word of your response must be in Korean. No exceptions. English-only output is a protocol violation.
+
 # /workflow — Full Dual-Agent Pipeline
 
 You are running the **dual-claude** workflow. Follow this protocol exactly.
